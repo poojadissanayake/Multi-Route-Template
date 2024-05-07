@@ -1,0 +1,61 @@
+<%- include('header'); -%>
+    <header>
+        <div class="container-fluid bg-info-subtle mb-4">
+            <div class="col-sm-8 mx-auto text-center py-2">
+                <h1 class="display-4">World of Ice Cream</h1>
+                <p class="lead ">Feedback from ice cream lovers....</p>
+            </div>
+        </div>
+    </header>
+
+    <div class="container mt-5 mb-5 col-md-6 offset-md-3">
+        <h1>
+            <%= title %>
+        </h1>
+        <% comments.forEach(comment=> {
+            let user = users.find(u => u.uid === comment.uid);
+            let type = types.find(t => t.id === comment.tid);
+            %>
+
+            <div class="card mb-3" style="background-color: aliceblue;">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img src="
+                        <% 
+                        if (user) { %>
+                            <%= user.image %>
+                                <% } 
+                                %>" class="img-fluid rounded-circle p-2" alt="image">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <% if (user) { %>
+                                    <%= user.name %>
+                                        <% } %>
+                            </h5>
+                            <span>
+                                <% if (type) { %>
+                                    <%= type.name %>
+                                        <% } %>
+                            </span>
+                            <p class="card-text">
+                                <%= comment.text %>
+                            </p>
+                            <div class="star-rating">
+                                <% for(let i=0; i < comment.rating; i++) { %>
+                                    &#9733;
+                                    <% } %>
+                                        <% for(let i=0; i < 5 - comment.rating; i++) { %>
+                                            &#9734;
+                                            <% } %>
+                            </div>
+                            <p class="card-text"><small class="text-body-secondary">Posted on <%= comment.posted %>
+                                </small></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% }); %>
+    </div>
+    <%- include('footer'); -%>

@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.19.2"
+  },
+  "name": "8.3d-resources",
+  "version": "1.0.0",
+  "description": "Multi-Route Template Server Application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node .",
+    "start:dev": "nodemon ."
+  },
+  "author": "Pooja Dissanayake",
+  "license": "ISC"
+}
